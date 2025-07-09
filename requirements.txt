@@ -1,1 +1,2 @@
-
+Flask==2.3.3
+python-dateutil==2.9.0
