@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>팀원 관리 시스템</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="header">
+    <h1>Team Management (총 {{ members | length }}명)</h1>
 
+    <form method="POST" class="form-add">
+      <input type="text" name="name" placeholder="이름" value="{{ edited_member.name if edit_index is not none else '' }}" required />
+      <input type="number" name="experience" placeholder="경력(년)" value="{{ edited_member.experience if edit_index is not none else '' }}" required min="0" />
+      <input type="date" name="join_date" value="{{ edited_member.join_date if edit_index is not none else '' }}" required />
+      <input type="text" name="contact" placeholder="연락처 (예: 010-1234-5678)" value="{{ edited_member.contact if edit_index is not none else '' }}" required />
+      <button type="submit" name="{{ 'save_edit' if edit_index is not none else 'add' }}" value="{{ edit_index if edit_index is not none else '' }}">
+        {{ '저장' if edit_index is not none else '추가' }}
+      </button>
+    </form>
+  </div>
+
+  <div class="grid-members">
+    {% for original_index, m in members %}
+    <div class="card">
+      <div class="card-header">
+        <h2>{{ m.name }}</h2>
+        <div class="actions">
+          <form method="POST" style="display:inline;">
+            <button type="submit" name="edit" value="{{ original_index }}">수정</button>
+          </form>
+          <form method="POST" style="display:inline;">
+            <button type="submit" name="delete" value="{{ original_index }}" onclick="return confirm('삭제하시겠습니까?')">삭제</button>
+          </form>
+        </div>
+      </div>
+      <p>경력: {{ m.experience }}년</p>
+      <p>입사일: {{ m.join_date }}</p>
+      <p>연락처: {{ m.contact }}</p>
+      <div class="renewals">
+        {% for d in m.renewals %}
+          {% if d < today %}
+            <span style="text-decoration: line-through; color: gray;">{{ d }}</span>
+          {% else %}
+            <span>{{ d }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
