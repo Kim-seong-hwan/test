@@ -1,1 +1,140 @@
+/* Reset & Base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+}
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0317c7;
+  margin-bottom: 10px;
+}
+
+/* Form */
+.form-add {
+  margin-top: 20px;
+}
+
+.form-add input,
+.form-add button {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #fff;
+}
+
+.form-add input:focus {
+  border-color: #0c03b1;
+  outline: none;
+}
+
+.form-add button {
+  background-color: #033ac7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-add button:hover {
+  background-color: #021c9e;
+}
+
+/* Members Grid */
+.grid-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 40px;
+}
+
+/* Card */
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.actions button {
+  background-color: #eee;
+  color: #333;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background-color: #030dc7;
+  color: #fff;
+}
+
+.card p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Renewals */
+.renewals {
+  margin-top: 10px;
+}
+
+.renewals span {
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  padding: 4px 6px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  color: #222;
+}
+
+.renewals span[style*="line-through"] {
+  text-decoration: line-through;
+  color: #aaa !important;
+  background-color: #eaeaea;
+}
